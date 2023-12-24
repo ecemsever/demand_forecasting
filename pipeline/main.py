@@ -4,12 +4,12 @@ import os
 import pickle
 import time
 import xgboost as xgb
+dir = os.path.dirname(__file__)
 
-
-if os.path.exists("8_hour_predictions.csv"):
-     os.remove("8_hour_predictions.csv")
-if os.path.exists("168_hour_predictions.csv"):
-     os.remove("168_hour_predictions.csv")
+if os.path.exists(dir+"/../dashboard/8_hour_predictions.csv"):
+     os.remove(dir+"/../dashboard/8_hour_predictions.csv")
+if os.path.exists(dir+"/../dashboard/168_hour_predictions.csv"):
+     os.remove(dir+"/../dashboard/168_hour_predictions.csv")
 
 special_holidays = [
     "1-1",  # New Year's Day
@@ -128,14 +128,14 @@ def create_forecasting_dataset(df, n_lag, n_next, special_holidays,
     return X, Y
 
 # Load models
-with open('../model/xgboost_model.pkl', 'rb') as file:
+with open(dir+'/../model/xgboost_model.pkl', 'rb') as file:
     model_8 = pickle.load(file)
 
-with open('../model/xgboost_model_168_v2.pkl', 'rb') as file:
+with open(dir+'/../model/xgboost_model_168_v2.pkl', 'rb') as file:
     model_168 = pickle.load(file)
 # Load datasets
-train_df = pd.read_csv('train_dataset.csv')
-test_df = pd.read_csv('test_dataset.csv')
+train_df = pd.read_csv(dir+'/train_dataset.csv')
+test_df = pd.read_csv(dir+'/test_dataset.csv')
 
 
 def update_prediction_files(index, n_lag, train_df, test_df, model_8, model_168, filename_8, filename_168):
@@ -186,4 +186,4 @@ def run_update_process(interval, train_df, test_df, model_8, model_168, filename
 
 
 # Start the update process
-run_update_process(0, train_df, test_df, model_8, model_168, '8_hour_predictions.csv', '168_hour_predictions.csv')
+run_update_process(0, train_df, test_df, model_8, model_168, dir+'/../dashboard/8_hour_predictions.csv', dir+'/../dashboard/168_hour_predictions.csv')

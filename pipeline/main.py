@@ -1,28 +1,10 @@
 import pandas as pd
 import numpy as np
-# import matplotlib.pyplot as plt
 import os
 import pickle
 import time
-# import pandas as pd
-# import numpy as np
-# from datetime import datetime
-# import math
-# import pandas as pd
 import xgboost as xgb
-# import wandb
-# from sklearn.metrics import mean_squared_error, mean_absolute_percentage_error
-# import matplotlib.pyplot as plt
-# from sklearn.model_selection import train_test_split
-# import pandas as pd
-# import numpy as np
 
-# from threading import Timer
-# from datetime import datetime, timedelta
-
-# print(os.path.abspath(os.curdir))
-# os.chdir("app")
-# print(os.path.abspath(os.curdir))
 
 if os.path.exists("8_hour_predictions.csv"):
      os.remove("8_hour_predictions.csv")
@@ -30,18 +12,18 @@ if os.path.exists("168_hour_predictions.csv"):
      os.remove("168_hour_predictions.csv")
 
 special_holidays = [
-    "1-1",  # New Year's Day
-    "2-1",  # New Year's Day (additional day)
-    "26-1",  # Australia Day
-    "13-3",  # Labour Day
-    "7-4",  # Good Friday
-    "8-4",  # Easter Saturday
+    "01-01",  # New Year's Day
+    "02-01",  # New Year's Day (additional day)
+    "26-01",  # Australia Day
+    "13-03",  # Labour Day
+    "07-04",  # Good Friday
+    "08-04",  # Easter Saturday
     # Since you did not provide a date for "Easter Sunday", I'm omitting it.
-    "10-4",  # Easter Monday
-    "25-4",  # Anzac Day
-    "12-6",  # King's Birthday
+    "10-04",  # Easter Monday
+    "25-04",  # Anzac Day
+    "12-06",  # King's Birthday
     # Omitting the AFL Grand Final date since it's TBC.
-    "7-11",  # Melbourne Cup
+    "07-11",  # Melbourne Cup
     "25-12",  # Christmas Day
     "26-12"  # Boxing Day
 ]
@@ -49,7 +31,7 @@ special_holidays = [
 
 # Helper function to determine the season based on the month
 def get_season(month):
-    if 12 <= month <= 2:
+    if (12 <= month) or (month <= 2):
         return 'summer'
     elif 3 <= month <= 5:
         return 'autumn'
@@ -146,13 +128,11 @@ def create_forecasting_dataset(df, n_lag, n_next, special_holidays,
     return X, Y
 
 # Load models
-with open('xgboost_model.pkl', 'rb') as file:
+with open('../model/xgboost_model.pkl', 'rb') as file:
     model_8 = pickle.load(file)
 
-with open('xgboost_model_168_v2.pkl', 'rb') as file:
+with open('../model/xgboost_model_168_v2.pkl', 'rb') as file:
     model_168 = pickle.load(file)
-# with open('xgboost_model_168_v2.pkl', 'wb') as file:
-#     pickle.dump(model_168, file)
 # Load datasets
 train_df = pd.read_csv('train_dataset.csv')
 test_df = pd.read_csv('test_dataset.csv')
@@ -201,9 +181,6 @@ def update_prediction_files(index, n_lag, train_df, test_df, model_8, model_168,
 def run_update_process(interval, train_df, test_df, model_8, model_168, filename_8, filename_168):
     for index in range(len(test_df)):
         update_prediction_files(index, 168*6, train_df, test_df, model_8, model_168, filename_8, filename_168)
-        # if index >168:
-        #     time.sleep(15)
-        # break;
         time.sleep(interval)  # Wait for the specified interval
         
 

@@ -66,13 +66,13 @@ def history():
     return history_data
 
 def data_8_hours():
-    pred_8_hours = pd.read_csv(dir+'/8_hour_predictions.csv')    
+    pred_8_hours = pd.read_csv(dir+'../pipeline/8_hour_predictions.csv')    
     pred_8_hours=pred_8_hours.rename(columns={"timestamp": "Date"})
 
     return pred_8_hours
 
 def data_168_hours():
-    pred_168_hours = pd.read_csv(dir+'/168_hour_predictions.csv')    
+    pred_168_hours = pd.read_csv(dir+'../pipeline/168_hour_predictions.csv')    
     pred_168_hours=pred_168_hours.rename(columns={"timestamp": "Date"})
     return pred_168_hours
 

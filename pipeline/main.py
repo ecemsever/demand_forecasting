@@ -12,18 +12,18 @@ if os.path.exists("168_hour_predictions.csv"):
      os.remove("168_hour_predictions.csv")
 
 special_holidays = [
-    "01-01",  # New Year's Day
-    "02-01",  # New Year's Day (additional day)
-    "26-01",  # Australia Day
-    "13-03",  # Labour Day
-    "07-04",  # Good Friday
-    "08-04",  # Easter Saturday
+    "1-1",  # New Year's Day
+    "2-1",  # New Year's Day (additional day)
+    "26-1",  # Australia Day
+    "13-3",  # Labour Day
+    "7-4",  # Good Friday
+    "8-4",  # Easter Saturday
     # Since you did not provide a date for "Easter Sunday", I'm omitting it.
-    "10-04",  # Easter Monday
-    "25-04",  # Anzac Day
-    "12-06",  # King's Birthday
+    "10-4",  # Easter Monday
+    "25-4",  # Anzac Day
+    "12-6",  # King's Birthday
     # Omitting the AFL Grand Final date since it's TBC.
-    "07-11",  # Melbourne Cup
+    "7-11",  # Melbourne Cup
     "25-12",  # Christmas Day
     "26-12"  # Boxing Day
 ]
@@ -31,7 +31,7 @@ special_holidays = [
 
 # Helper function to determine the season based on the month
 def get_season(month):
-    if (12 <= month) or (month <= 2):
+    if 12 <= month <= 2:
         return 'summer'
     elif 3 <= month <= 5:
         return 'autumn'

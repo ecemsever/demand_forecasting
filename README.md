@@ -6,7 +6,7 @@
 
 - Aim is to predict the next 8 hours and 168 hours to obtain optimum operational efficiency for energy industry
 
-- The data is gathered from https://aemo.com.au/
+- The data between 2015 & 2018 is gathered from https://aemo.com.au/
 
 - A user-friendly user dashboard is provided to present prediction result as well as historical data analysis.
 

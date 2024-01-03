@@ -22,3 +22,7 @@
 ### dashboard:
 - It is using Streamlit and with the update button, predictions are updated to take most recent predicted values.
 This button is only usable on the production version of the dashboard deployed on GCP Compute engine.
+
+## 💻 Our Solution Architecture on Production
+
+<img src="https://github.com/ecemsever/demand_forecasting/assets/64542150/49fbf9b7-dbdb-4a70-b042-8308edfef7fa)https://github.com/ecemsever/demand_forecasting/assets/64542150/49fbf9b7-dbdb-4a70-b042-8308edfef7fa" style="width:600px;"/>

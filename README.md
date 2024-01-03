@@ -1,4 +1,4 @@
-# Welcome to our Short Term Load Forecasting (STLF) project for Victoria, Australia!👋
+# Welcome to our Short Term Load Forecasting (STLF) project for Victoria, Australia!
 
 <p align="center">
 <img src="https://github.com/ecemsever/demand_forecasting/assets/64542150/d11a125b-b986-478f-96af-fb781f40ed95" style="width:300px;"/>
@@ -33,4 +33,4 @@ This button is only usable on the production version of the dashboard deployed o
 <img src="https://github.com/ecemsever/demand_forecasting/assets/64542150/49fbf9b7-dbdb-4a70-b042-8308edfef7fa)https://github.com/ecemsever/demand_forecasting/assets/64542150/49fbf9b7-dbdb-4a70-b042-8308edfef7fa" style="width:500px;"/>
 </p>
 
-# 👋 Stay powerful, stay forecasting, and may the data be with you! 👋
+# Stay powerful, stay forecasting, and may the data be with you! 👋
